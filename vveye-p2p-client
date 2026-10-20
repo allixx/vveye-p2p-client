@@ -1,0 +1,6 @@
+#!/bin/sh
+# Linux launcher for the vendored VVEye Android client library.
+set -eu
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export LD_LIBRARY_PATH="$ROOT/build:$ROOT/vendor${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+exec "$ROOT/build/vveye-p2p" "$@"
